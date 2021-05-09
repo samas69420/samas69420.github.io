@@ -1,0 +1,92 @@
+.logodiv{
+    position: absolute;
+    
+    width: 100vw;/*questo ha le stesse dimensioni del div0*/
+    height: 100vh;
+    
+    top:0; /*lo metto a partire dall'angolo in alto a sinistra*/
+    left:0;
+
+    display: flex; /* faccio la griglia per allineare tutto quello che finirà dentro */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    z-index: 2;
+    background-color: transparent;
+}
+
+.logodiv > #cerchio{ /* el 1 di sez4 è il div dello sfondo del logo che deve animarsi, le lettere le metto come entità figlie*/
+    position: absolute;
+    width: 10vw;/*questo ha le dimensioni rispetto la view */
+    height: 10vw;
+    max-height: 150px;
+    max-width: 150px;
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 100px;
+
+    display: flex; /* faccio la griglia per allineare tutto quello che finirà dentro */
+    align-items: center;
+    justify-content: center;
+    
+    transition: all 1s ease;
+}
+.logodiv > #cerchio:hover{
+    border-radius: 100px;
+    max-width: 40%;
+    width: 40%; /*qui mi conviene usare vw al posto della percentuale perche così si trova bene con il movimento delle lettere ma a sto punto mi conviene usare la stessa a tutti*/
+}
+
+
+
+
+
+.logoclass{    
+    transform: scale(0.8);
+    max-height: 10vw;
+    stroke-width: 5px;
+    width: 200%;
+}
+
+
+
+
+
+
+
+
+#s{
+    transition: all 1s ease;
+}
+#m{
+    transition: all 1s ease;
+}
+#a{
+    transition: all 1s ease;
+}
+#as{
+    transition: all 1s ease;
+}
+#ss{
+    transition: all 1s ease;
+}
+
+
+
+
+
+#cerchio:hover #s{
+    transform: translateX(-150%);
+}
+
+#cerchio:hover #a{
+    transform: translateX(-70%);
+}
+#cerchio:hover #as{
+    transform: translateX(70%)
+}
+#cerchio:hover #ss{
+    transform-origin: 70% 0%;
+    transform: translateX(140%) scaleX(-1);
+}
