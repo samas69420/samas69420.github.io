@@ -16,7 +16,33 @@
     background-color: transparent;
 }
 
-.logodiv > #cerchio{ /* el 1 di sez4 è il div dello sfondo del logo che deve animarsi, le lettere le metto come entità figlie*/
+
+.selector{ /* el 1 di sez4 è il div dello sfondo del logo che deve animarsi, le lettere le metto come entità figlie*/
+    position: absolute;
+    width: 10vw;/*questo ha le dimensioni rispetto la view */
+    height: 10vw;
+    max-height: 150px;
+    max-width: 150px;
+    /*border-color: rgb(0, 255, 115);
+    border-style: solid; per debug*/
+    border-radius: 100px;
+    background-color: transparent;
+    z-index: 4;
+
+    display: flex; /* faccio la griglia per allineare tutto quello che finirà dentro */
+    align-items: center;
+    justify-content: center;
+}
+.selector:hover{
+    border-radius: 0;
+    max-height: none;
+    max-width: none;
+    width: 40vw;
+    height: 40vh;
+}
+
+
+.selector > #cerchio{ /* el 1 di sez4 è il div dello sfondo del logo che deve animarsi, le lettere le metto come entità figlie*/
     position: absolute;
     width: 10vw;/*questo ha le dimensioni rispetto la view */
     height: 10vw;
@@ -31,11 +57,12 @@
     justify-content: center;
     
     transition: all 1s ease;
+    z-index: 2;
 }
-.logodiv > #cerchio:hover{
+.selector:hover #cerchio{
     border-radius: 100px;
-    max-width: 40%;
-    width: 40%; /*qui mi conviene usare vw al posto della percentuale perche così si trova bene con il movimento delle lettere ma a sto punto mi conviene usare la stessa a tutti*/
+    max-width: 40vw;
+    width: 40vw; /*qui mi conviene usare vw al posto della percentuale perche così si trova bene con il movimento delle lettere ma a sto punto mi conviene usare la stessa a tutti*/
 }
 
 
@@ -44,7 +71,7 @@
 
 .logoclass{    
     transform: scale(0.8);
-    max-height: 10vw;
+    max-height: 100%;
     stroke-width: 5px;
     width: 200%;
 }
@@ -76,17 +103,69 @@
 
 
 
-#cerchio:hover #s{
+.selector:hover #cerchio #s{
     transform: translateX(-150%);
 }
 
-#cerchio:hover #a{
+.selector:hover #cerchio #a{
     transform: translateX(-70%);
 }
-#cerchio:hover #as{
+.selector:hover #cerchio #as{
     transform: translateX(70%)
+}
+.selector:hover #cerchio #ss{
+    transform-origin: 70% 0%;
+    transform: translateX(140%) scaleX(-1);
+}
+
+
+
+
+/* #cerchio:hover #s{               questo mi rompe i coglioni se rimpicciolisco la larghezza della pagina ma si comporta meglio dell'altro se la allargo
+    transform: translateX(-20vw);
+}
+
+#cerchio:hover #a{
+    transform: translateX(-10vw);
+}
+#cerchio:hover #as{
+    transform: translateX(10vw)
 }
 #cerchio:hover #ss{
     transform-origin: 70% 0%;
-    transform: translateX(140%) scaleX(-1);
+    transform: translateX(19vw) scaleX(-1);
+}*/
+
+
+.button{
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 1vw;
+}
+
+
+.menu{
+    position: absolute;
+    text-align: center;
+    border-radius: 100px;
+    width: 8vw;
+    height: 3vw;
+    padding-top: 1.5vw;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0);
+    transition: all 1s ease 0.2s;
+    opacity: 0;
+    z-index: 1;
+}
+
+.selector:hover #myprojects{
+    opacity: 1;
+    transform: translateY(-15vh);
+    background-color: rgba(255, 255, 255, 1);
+}
+.selector:hover #contacts{
+    opacity: 1;
+    transform: translateY(15vh);
+    background-color: rgba(255, 255, 255, 1);
 }
